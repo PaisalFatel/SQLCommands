@@ -1,0 +1,4 @@
+ select * from products where pid = (select pid Total_sales from sales group by pid
+  2  having count (*) = (select max(Total_sales) from
+  3* (select pid,count(*) as Total_sales from sales group by pid) sales));
+
